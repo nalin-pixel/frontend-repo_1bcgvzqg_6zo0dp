@@ -1,5 +1,6 @@
 import Spline from '@splinetool/react-spline'
 import { motion } from 'framer-motion'
+import { Plane } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -9,6 +10,20 @@ export default function Hero() {
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0b]/30 to-[#0a0a0b] pointer-events-none" />
+
+      {/* Ambient plane path animation for added immersion */}
+      <motion.div
+        aria-hidden
+        initial={{ x: '-10%', y: '60%', rotate: -10, opacity: 0 }}
+        animate={{ x: ['-10%','30%','70%','110%'], y: ['60%','40%','55%','45%'], rotate: [-10, -2, 3, 8], opacity: [0, 0.7, 0.8, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        className="pointer-events-none absolute z-[1]"
+      >
+        <div className="relative">
+          <div className="absolute -inset-6 rounded-full bg-orange-500/10 blur-2xl" />
+          <Plane className="size-8 text-white/80 drop-shadow-[0_0_12px_rgba(251,146,60,0.45)]" />
+        </div>
+      </motion.div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-24">
         <div className="max-w-3xl">
